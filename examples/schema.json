@@ -1,0 +1,47 @@
+{
+  "key": "sss",
+  "name": "",
+  "widget": "grid",
+  "type": "object",
+  "title": "项目",
+  "description": "",
+  "help": "",
+  "hidden": false,
+  "disabled": false,
+  "placeholder": "",
+  "container": true,
+  "size": "default",
+  "rules": [],
+  "option": {},
+  "children": [{
+    "span": 24,
+    "list": [{
+      "key": "kTbIYTMwA",
+      "name": "kTbIYTMwA",
+      "widget": "input",
+      "type": "string",
+      "title": "编码",
+      "description": "",
+      "help": "",
+      "hidden": false,
+      "disabled": false,
+      "placeholder": "模糊查询",
+      "container": false,
+      "size": "default",
+      "rules": [{
+        "required": false,
+        "message": "",
+        "trigger": "blur"
+      }],
+      "option": {},
+      "children": []
+    }]
+  }],
+  "mode": "edit",
+  "logics": [],
+  "label": {
+    "width": 80,
+    "position": "right",
+    "colon": false
+  }
+}
