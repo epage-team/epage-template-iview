@@ -13,3 +13,4 @@ dist-examples/
 dist/
 *.iml
 .idea/
+package-lock.json

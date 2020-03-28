@@ -23,7 +23,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "epage-iview": "^0.1.0",
+    "epage-iview": "^0.2.0",
     "iview": "^3.5.4"
   },
   "engines": {

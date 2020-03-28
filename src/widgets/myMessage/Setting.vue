@@ -5,7 +5,7 @@ setting-form(:store='store')
   span(slot='name')
   span(slot='disabled')
   span(slot='help')
-  span(slot='title')
+  span(slot='label')
   span(slot='description')
   FormItem(label='消息内容')
     Input(
