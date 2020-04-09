@@ -1,10 +1,8 @@
 const path = require('path')
-const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const NODE_ENV = process.env.NODE_ENV || 'production'
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const scriptPath =  [
+const scriptPath = [
   path.resolve(__dirname, '../src'),
   path.resolve(__dirname, '../examples')
 ]
@@ -27,9 +25,9 @@ module.exports = {
         include: scriptPath,
         options: {
           presets: [
-            ["@babel/preset-env", {
-              "targets": {
-                "esmodules": true
+            ['@babel/preset-env', {
+              targets: {
+                esmodules: true
               }
             }],
             '@vue/babel-preset-jsx']
@@ -37,15 +35,15 @@ module.exports = {
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          use: ["css-loader"]
+          use: ['css-loader']
         })
       }, {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           use: [
-            "css-loader",
+            'css-loader',
             {
-              loader: "less-loader",
+              loader: 'less-loader',
               options: { javascriptEnabled: true }
             }
           ]
@@ -68,10 +66,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
-    })
+    new VueLoaderPlugin()
   ],
   resolve: {
     symlinks: false,
@@ -80,5 +75,7 @@ module.exports = {
       '@': path.resolve(__dirname, '../src')
     }
   },
-  stats: { children: false },
+  stats: {
+    children: false
+  }
 }

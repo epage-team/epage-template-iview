@@ -14,8 +14,6 @@ Object.assign(MyMessageSchema, {
   title: '消息',
   widget: 'myMessage', // 组件类型的唯一标识，相同时表示同一个组件 必须和 this.widget相同
   icon: 'compose',
-  type: 'string',
-  validators: [],
   logic: {
     value: [],
     // event: ['focus', 'blur', 'change']

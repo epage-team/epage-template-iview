@@ -20,7 +20,9 @@ const webpackConfig = merge(webpackBaseConfig, {
     umdNamedDefine: true
   },
   plugins: [
-    new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist-examples')}),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist-examples')
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './examples/index.html',
@@ -43,7 +45,7 @@ const webpackConfig = merge(webpackBaseConfig, {
       cssProcessorOptions: {
         safe: true
       }
-    }),
+    })
   ]
 })
 
