@@ -5,8 +5,8 @@
   "author": "chengzi <ttghost@126.com>",
   "main": "./dist/$${project_name}.min.js",
   "scripts": {
-    "start": "webpack-dev-server --config script/webpack.dev.js",
-    "build": "webpack --config script/webpack.build.js",
+    "start": "webpack-dev-server --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.build.js",
     "lint": "eslint src/",
     "analyz": "npm_config_report=true npm run build"
   },
