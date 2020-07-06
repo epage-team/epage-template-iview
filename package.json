@@ -2,7 +2,7 @@
   "name": "$${project_name}",
   "version": "0.1.0",
   "description": "Epage widgets",
-  "author": "chengzi <ttghost@126.com>",
+  "author": "",
   "main": "./dist/$${project_name}.min.js",
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.dev.js",
