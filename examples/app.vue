@@ -14,7 +14,7 @@ const { helper } = Epage
 // Rule.set(rules)
 // 自定义widget 的validators
 // helper.setValidators(widgets, { richText: ['phone'] })
-const myWidgets = helper.mergeWidgets(widgets, ...customWidgets)
+const myWidgets = helper.mergeWidgets(customWidgets, ...widgets)
 
 export default {
   mounted () {
