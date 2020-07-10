@@ -8,7 +8,6 @@
 1. 本地启动
 
 ```
-npm install
 npm start
 ```
 

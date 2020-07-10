@@ -13,16 +13,16 @@
       "name": "kTbIYTMwA",
       "widget": "input",
       "type": "string",
-      "label": "编码",
+      "label": "姓名",
       "description": "",
       "help": "",
       "hidden": false,
       "disabled": false,
-      "placeholder": "模糊查询",
+      "placeholder": "请输入姓名",
       "size": "default",
       "rules": [{
-        "required": false,
-        "message": "",
+        "required": true,
+        "message": "必填",
         "trigger": "blur"
       }],
       "option": {}

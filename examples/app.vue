@@ -1,77 +1,126 @@
 <template lang="pug">
-.form-demo
-  div(ref='form')
+.demo-container
+  .demo-header
+    span.demo-title Epage演示示例
+    span.demo-btns
+      Button.demo-btn(type='primary' size='small' @click='validateForm') 校验表单
+      Button.demo-btn(type='warning' size='small' @click='resetForm') 重置表单
+      Button.demo-btn(type='info' size='small' @click='getFormData') 获取表单值
+
+  .demo-epage
+    div(ref='form')
 
 </template>
 <script>
 import widgets, { Render, Epage } from 'epage-iview'
-import { widgets as customWidgets } from '@'
-import mockSchema from './schema.json'
+import { widgets as customWidgets } from '../src'
+import schema from './schema.json'
 
 const { helper } = Epage
-
-// 扩展自定义rule
-// Rule.set(rules)
-// 自定义widget 的validators
-// helper.setValidators(widgets, { richText: ['phone'] })
 const myWidgets = helper.mergeWidgets(customWidgets, ...widgets)
 
 export default {
+  data () {
+    return {
+      epage: null,
+      render: null,
+      model: {
+        kTbIYTMwA: 'C23'
+      }
+    }
+  },
   mounted () {
-    this.getSchema().then(schema => {
-      // 创建设计器
-      const epage = this.formDesign(schema)
-      this.getModel().then(model => {
-        epage.store.updateModel(model)
-      })
+    const el = this.$refs.form
+    // 设计器
+    this.epage = new Epage({ el, widgets: myWidgets, schema, Render })
+    this.epage.$render.store.updateModel(this.model)
 
-      // 渲染默认编辑模式
-      // const form = this.formRender(schema)
-      // this.getModel().then(model => {
-      //   form.store.updateModel(model)
-      // })
-      // this.listenerForm(form)
-    })
+    // 渲染默认编辑模式
+    // this.render = new Render({ el, widgets: myWidgets, schema })
+    // this.render.store.updateModel(this.model)
+    // this.listenerForm()
   },
   methods: {
-    getSchema () {
-      return Promise.resolve(mockSchema)
+    checkPreview (action) {
+      const text = {
+        reset: '请在预览视图重置表单',
+        validate: '请在预览视图校验表单',
+        formdata: '请在预览视查看表单值'
+      }
+      const tab = this.epage.store.getTab()
+      if (tab !== 'preview') {
+        this.$Message.warning(text[action])
+        return false
+      }
+      return true
     },
-    formRender (schema) {
-      const el = this.$refs.form
-      return new Render({ el, widgets: myWidgets, schema })
-    },
-    formDesign (schema) {
-      const el = this.$refs.form
-      return new Epage({ el, widgets: myWidgets, schema, Render })
-    },
-    getModel () {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ k17U0aTQ4: '这是关键字' })
-        }, 1000)
+    validateForm (args) {
+      if (!this.checkPreview('validate')) return
+      const render = this.render || this.epage.$render
+      render.validateFields().then(args => {
+        console.log('validate: ', args)
       })
     },
-    listenerForm (form) {
+    resetForm (args) {
+      if (!this.checkPreview('reset')) return
+      const render = this.render || this.epage.$render
+      render.resetFields()
+    },
+    getFormData () {
+      if (!this.checkPreview('formdata')) return
+      const render = this.render || this.epage.$render
+      const formData = render.store.getFormData()
+
+      this.$Notice.open({
+        title: 'Form Data或打开开发者工具查看',
+        duration: 3,
+        render: h => {
+          return h('pre', {
+            domProps: {
+              innerHTML: JSON.stringify(formData, null, 2)
+            }
+          })
+        }
+      })
+      console.log('form data: ', formData)
+    },
+    listenerForm () {
       // 添加监听
-      form
-        .on('k17U0aTQ4', 'change', e => {
-          console.log(e.target.value, 9999)
+      this.render
+        .on('kTbIYTMwA', 'change', e => {
+          console.log('onChange: ', e.target.value)
         })
         // .off('k17U0aTQ4', 'change')
-    },
-    saveForm (schema) {
-      console.log('schema: ', schema)
     }
   }
 }
 </script>
 <style lang="less">
-.form-demo{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.demo-container {
+  .demo-header {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    .demo-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .demo-btns {
+      margin-left: 32px;
+      vertical-align: bottom;
+    }
+    .demo-btn{
+      margin-left: 16px;
+    }
+  }
+  .demo-epage{
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 </style>
