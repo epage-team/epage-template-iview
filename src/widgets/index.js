@@ -1,8 +1,8 @@
 import * as myMessage from './myMessage'
 
 export default [{
-  title: 'Custom',
-  key: 'custom-base',
+  title: 'myWidget',
+  key: 'my-widget',
   widgets: [
     myMessage
   ]

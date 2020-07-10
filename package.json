@@ -33,7 +33,7 @@
     "not ie <= 8"
   ],
   "dependencies": {
-    "epage-iview": "^0.2.7"
+    "epage-iview": "^0.3.0"
   },
   "peerDependencies": {
     "vue": ">2.5",
@@ -42,8 +42,6 @@
     "vuex": ">=3.1"
   },
   "devDependencies": {
-    "iview": "^3.5.4",
-    "vuedraggable": "^2.20.0",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@vue/babel-preset-jsx": "^1.1.2",
@@ -69,10 +67,8 @@
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^1.0.0-rc.0",
     "url-loader": "^1.1.2",
-    "vue": "^2.6.10",
     "vue-loader": "15.7.0",
     "vue-template-compiler": "^2.6.10",
-    "vuex": "^3.1.1",
     "webpack": "^4.35.2",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.5",

@@ -1,6 +1,6 @@
 <template lang="pug">
 .ep-widget
-  .ep-widget-myMessage(:class='cls') {{schema.option.message}}
+  .epmy-myMessage(:class='cls') {{schema.option.message}}
 
   //- //- 显示模式展示
   //- template(v-if='mode === "display"')
@@ -17,7 +17,7 @@ export default {
   computed: {
     cls () {
       const { type } = this.schema.option
-      return `ep-widget-myMessage-${type}`
+      return `epmy-myMessage-${type}`
     }
   }
 }
