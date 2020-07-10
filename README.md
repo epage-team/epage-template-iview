@@ -12,7 +12,3 @@ npm start
 ```
 
 2. 打包 `npm run build`
-
-3. 发布 `npm publish`，注意需要更改`package.json`内 `name`及`main`字段
-
-
