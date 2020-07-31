@@ -33,7 +33,7 @@
     "not ie <= 8"
   ],
   "dependencies": {
-    "epage-iview": "^0.3.0"
+    "epage-iview": "^0.3.3"
   },
   "peerDependencies": {
     "vue": ">2.5",
