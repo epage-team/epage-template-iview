@@ -6,7 +6,8 @@
   "main": "./dist/$${project_name}.min.js",
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.build.js",
+    "style": "webpack --config build/webpack.style.js",
+    "build": "webpack --config build/webpack.build.js && npm run style",
     "lint": "eslint src/",
     "analyz": "npm_config_report=true npm run build"
   },
