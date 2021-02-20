@@ -21,12 +21,11 @@ setting-form(:store='store')
       Radio(label='error') 错误
 </template>
 <script>
-import { Epage } from 'epage-iview'
+import { setting } from 'epage-iview'
 
-const { SettingForm, settingExtend } = Epage.setting
+const { settingExtend } = setting
 
 export default {
-  components: { SettingForm },
   extends: settingExtend,
   methods: {}
 }

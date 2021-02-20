@@ -1,4 +1,4 @@
-import * as myMessage from './myMessage'
+import * as myMessage from './widgets/myMessage'
 
 export default [{
   title: 'myWidget',

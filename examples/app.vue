@@ -1,23 +1,19 @@
 <template lang="pug">
 .demo-container
-  .demo-header
-    span.demo-title Epage演示示例
-    span.demo-btns
-      Button.demo-btn(type='primary' size='small' @click='validateForm') 校验表单
-      Button.demo-btn(type='warning' size='small' @click='resetForm') 重置表单
-      Button.demo-btn(type='info' size='small' @click='getFormData') 获取表单值
+  //- .demo-header
+  //-   span.demo-title Epage演示示例
+  //-   span.demo-btns
+  //-     Button.demo-btn(type='primary' size='small' @click='validateForm') 校验表单
+  //-     Button.demo-btn(type='warning' size='small' @click='resetForm') 重置表单
+  //-     Button.demo-btn(type='info' size='small' @click='getFormData') 获取表单值
 
   .demo-epage
     div(ref='form')
 
 </template>
 <script>
-import widgets, { Render, Epage } from 'epage-iview'
-import { widgets as customWidgets } from '../src'
-import schema from './schema.json'
-
-const { helper } = Epage
-const myWidgets = helper.mergeWidgets(customWidgets, ...widgets)
+import Epage from 'epage'
+import config from './epage.config.js'
 
 export default {
   data () {
@@ -31,8 +27,9 @@ export default {
   },
   mounted () {
     const el = this.$refs.form
+    const option = { ...config, el }
     // 设计器
-    this.epage = new Epage({ el, widgets: myWidgets, schema, Render })
+    this.epage = new Epage(option)
     this.epage.$render.store.updateModel(this.model)
 
     // 渲染默认编辑模式
@@ -97,27 +94,27 @@ export default {
 </script>
 <style lang="less">
 .demo-container {
-  .demo-header {
-    height: 50px;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 16px;
-    box-sizing: border-box;
-    .demo-title {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .demo-btns {
-      margin-left: 32px;
-      vertical-align: bottom;
-    }
-    .demo-btn{
-      margin-left: 16px;
-    }
-  }
+  // .demo-header {
+  //   height: 50px;
+  //   width: 100%;
+  //   border-bottom: 1px solid #ddd;
+  //   padding: 10px 16px;
+  //   box-sizing: border-box;
+  //   .demo-title {
+  //     font-size: 18px;
+  //     font-weight: bold;
+  //   }
+  //   .demo-btns {
+  //     margin-left: 32px;
+  //     vertical-align: bottom;
+  //   }
+  //   .demo-btn{
+  //     margin-left: 16px;
+  //   }
+  // }
   .demo-epage{
     position: fixed;
-    top: 50px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;

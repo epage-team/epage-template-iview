@@ -7,7 +7,7 @@ const webpackBaseConfig = require('./webpack.base.js')
 const webpackConfig = merge(webpackBaseConfig, {
   mode: 'production',
   entry: {
-    '$${project_name}': './src/styles/main.less'
+    '$${project_name}': './src/style/main.less'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
